@@ -1,9 +1,9 @@
 /*
  Including issue #3
 */
-test("parseLine basic", function() {
-  var ctx = {}
-  var type_lines = [
+test('parseLine basic', function() {
+  let ctx = {};
+  const type_lines = [
     'line', 'From 4359e3b3e0d40a089430ccf94e8411ba0cc4fa77 Mon Sep 17 00:00:00 2001',
     'subject', 'Subject: [PATCH] DRILL-1612: Add maven enforcer rules for maven and Java',
     'line', ' version',
@@ -25,21 +25,21 @@ test("parseLine basic", function() {
     'plusline', '+            <id>validate_java_and_maven_version</id>',
     'minusline', '-          <version>1.2</version>',
     'sameline', '         </plugin>',
-  ]
-  var types = [
-  ]
-  for (var j = 0; j < type_lines.length; j += 2) {
-    var tp = type_lines[j]
-    var line = type_lines[j + 1]
-    var info = g_parseLine(line, ctx)
+  ];
+  const types = [
+  ];
+  for (let j = 0; j < type_lines.length; j += 2) {
+    const tp = type_lines[j];
+    const line = type_lines[j + 1];
+    const info = g_parseLine(line, ctx);
     equal(info.tp, tp, 'line ' + (j/2 + 1) + ': ' + line);
     if (info.tp == 'filestart') {
-      ctx = {}
-      continue
+      ctx = {};
+      continue;
     }
     if (info.tp == 'lineinfo') {
-      ctx.ready = true
-      continue
+      ctx.ready = true;
+      continue;
     }
   }
 });
