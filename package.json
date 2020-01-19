@@ -1,0 +1,22 @@
+{
+  "name": "diff-patch",
+  "version": "2.0.1",
+  "description": "A Firefox extension for rendering pretty diffs and patches created by commands like git format-patch.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabehab/diff-patch.git"
+  },
+  "keywords": [
+    "firefox-extension"
+  ],
+  "author": "Gabriel Habayeb",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/gabehab/diff-patch/issues"
+  },
+  "homepage": "https://github.com/gabehab/diff-patch#readme"
+}
