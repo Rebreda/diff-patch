@@ -1,4 +1,6 @@
+// import './options.scss';
 require('./options.scss');
+
 /**
  * Replaces elements innterText by id with text.
  * @param {int} id The first number.

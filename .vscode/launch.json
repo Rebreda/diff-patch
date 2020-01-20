@@ -29,7 +29,8 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "addonPath": "${workspaceFolder}"
+            "addonPath": "${workspaceFolder}",
+            "internalConsoleOptions": "openOnFirstSessionStart"
         }
     ]
 }

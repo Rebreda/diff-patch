@@ -2,39 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="./options/options.css" />
+    <link rel="stylesheet" type="text/css" href="./css/options.css" />
     <title>Differer</title>
   </head>
 
   <body>
-    <section>
-      <div>
-        <h1 id="h1-page-title">
-          <img id="" src="../icons/patch-ext-48.png" />
-          Differer
-        </h1>
-        <p>
-          <i>Version: <span id="version"> </span> </i>
-        </p>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <img
+            src="../icons/patch-ext-48.png"
+            alt="Differer: Clean patch reader"
+          />
+        </div>
+        <div class="navbar-item">
+          <h1 class="title">
+            Differer
+          </h1>
+        </div>
       </div>
-      <article>
-        <span id="span-cur-to" class="group-label">
-          Patterns
-          <br />
-          <span class="small">
-            JavaScript regular expression for auto-rendering URLs</span
-          ></span>
-        <textarea id="ta-patterns"></textarea>
-      </article>
-      <article class="footer">
-        <a href="https://github.com/gabehab/diff-patch" target="_blank"
-          >Source Code</a>
-        | Developed by Gabriel Habayeb based on
-        <a href="https://github.com/daviddengcn/patch-ext" target="_blank"
-          >daviddengcn/patch-ext</a>
-      </article>
+    </nav>
+
+    <section class="section is-medium">
+      <div class="container">
+        <article>
+          <h2 class="subtitle is-3">Patterns</h2>
+          <p class="subtitle is-6">
+            JavaScript regular expression for auto-rendering URLs
+          </p>
+          <textarea id="ta-patterns" class="textarea" rows="10"></textarea>
+        </article>
+      </div>
     </section>
 
-    <script src="options/index.js"></script>
+    <footer class="footer">
+      <div>
+        <p>
+          <strong>Differer</strong> by
+          <a href="https://github.com/gabehab"> Gabriel Habayeb</a> based on
+          <a href="https://github.com/daviddengcn/patch-ext" target="_blank">
+            daviddengcn/patch-ext
+          </a>
+        </p>
+        <p>
+          Version: <i> <span id="version"> </span> </i>
+          <a href="https://github.com/gabehab/diff-patch" target="_blank">
+            Source Code
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./js/options.js"></script>
   </body>
 </html>

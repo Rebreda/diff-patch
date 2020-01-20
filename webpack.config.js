@@ -4,29 +4,34 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   // mode: 'development',
   entry: {
-    bundle: './src/options/index.js',
     options: './src/options/options.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]/index.js',
+    filename: 'js/[name].js',
+  },
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+            // options...
+          },
+        },
+      ],
+    }],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'options/options.css',
+      filename: 'css/[name].css',
     }),
   ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          'css-loader',
-        ],
-      },
-    ],
-  },
+
 };
