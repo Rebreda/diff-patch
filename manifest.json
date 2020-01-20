@@ -11,7 +11,7 @@
     "scripts": ["background.js"]
   },
   "options_ui": {
-    "page": "options/options.html",
+    "page": "dist/options.html",
     "browser_style": true,
     "open_in_tab": true
   },

@@ -1,4 +1,4 @@
-let g_patterns = [];
+let matchedPatterns = [];
 
 function load() {
   let str = localStorage['url_patterns'];
@@ -14,17 +14,17 @@ function load() {
       'https://patch-diff.githubusercontent.com/raw/.*[.]diff',
     ].join('\n');
   }
-  g_patterns = str.split('\n');
+  matchedPatterns = str.split('\n');
 }
 load();
 
 function save() {
-  localStorage['url_patterns'] = g_patterns.join('\n');
+  localStorage['url_patterns'] = matchedPatterns.join('\n');
 }
 
 const shouldInject = function(url) {
-  for (let i = 0; i < g_patterns.length; i++) {
-    if (url.match(g_patterns[i])) {
+  for (let i = 0; i < matchedPatterns.length; i++) {
+    if (url.match(matchedPatterns[i])) {
       return true;
     }
   }
@@ -33,14 +33,14 @@ const shouldInject = function(url) {
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.set_options) {
-    g_patterns = msg.options.patterns;
+    matchedPatterns = msg.options.patterns;
     save();
     return;
   }
 
   if (msg.get_options) {
     sendResponse({
-      patterns: g_patterns,
+      patterns: matchedPatterns,
     });
     return;
   }
