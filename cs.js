@@ -1,5 +1,5 @@
-if (typeof(g_gpv_rendered) == 'undefined') {
-  g_gpv_rendered = true;
+if (typeof(renderContent) === 'undefined') {
+  renderContent = true;
 
   (function() {
     const opINS = 0;
@@ -289,7 +289,7 @@ if (typeof(g_gpv_rendered) == 'undefined') {
       };
     };
 
-    if (typeof(g_gpv_rendered) != 'undefined') {
+    if (typeof(renderContent) != 'undefined') {
     	g_parseLine = parseLine;
     }
 

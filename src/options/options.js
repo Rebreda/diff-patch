@@ -1,45 +1,35 @@
 // import './options.scss';
-require('./options.scss');
-
-/**
- * Replaces elements innterText by id with text.
- * @param {int} id The first number.
- * @param {string} text The second number.
- */
-function replaceText(id, text) {
-  document.getElementById(id).innerText = text;
-}
+// require('./options.scss');
 
 
 /**
- * Passes back local values to background.js.
+ *
+ *
+ * @return {Promise}
  */
-function sendOptions() {
-  const patterns = document
-      .getElementById('ta-patterns')
-      .value.trim()
-      .split('\n');
-  browser.runtime.sendMessage({
-    set_options: {},
-    options: {
-      patterns: patterns,
-    },
-  });
+async function loadOptions() {
+  return await browser.storage.local.get('urlPatterns');
 }
 
 /**
- * Loads values from background.js.
+ *
+ *
+ * @param {*} initSettings
  */
-function load() {
-  replaceText('version', browser.runtime.getManifest().version);
-  browser.runtime.sendMessage({get_options: {}}, function(opt) {
-    document.getElementById('ta-patterns').value = opt.patterns.join('\n');
-    document
-        .getElementById('ta-patterns')
-        .addEventListener('change', function(e) {
-          sendOptions();
-        });
-  });
+function updateUI(initSettings) {
+  // const stringArray = initSettings.url.value.split('\n');
+  const arrayString = initSettings.url.join('\n');
+  console.log(initSettings);
+  document.querySelector('#ta-patterns').value = arrayString;
 }
 
-load();
+function onError(e) {
+  console.error(e);
+}
+
+browser.storage.local.set({'url': ['test.com', 'asd.com']}).then((s) => {
+  const initStorage = browser.storage.local.get();
+  initStorage.then(updateUI, onError);
+});
+
+

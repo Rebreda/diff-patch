@@ -3,13 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // mode: 'development',
-  entry: {
-    options: './src/options/options.js',
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js',
-  },
+  // entry: {
+  //   options: './src/options/options.js',
+  // },
+  // output: {
+  //   path: path.resolve(__dirname, 'dist'),
+  //   filename: 'js/[name].js',
+  // },
   module: {
     rules: [{
       test: /\.scss$/,

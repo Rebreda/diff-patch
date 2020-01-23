@@ -1,0 +1,8 @@
+{
+  "name": "diff-patch@ghabayeb.com",
+  "description": "ignored",
+  "type": "storage",
+  "data": {
+    "urlPatterns": "test.com"
+  }
+}

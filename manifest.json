@@ -2,7 +2,7 @@
   "name": "Differer",
   "short_name": "DIFF",
   "description": "A Firefox extension for rendering pretty diffs and patches created by commands like git format-patch.",
-  "permissions": ["<all_urls>", "tabs"],
+  "permissions": ["<all_urls>", "tabs", "storage"],
   "icons": {
     "48": "icons/patch-ext-48.png",
     "128": "icons/patch-ext-128.png"
@@ -16,10 +16,6 @@
     "open_in_tab": true
   },
   "browser_action": {
-    "default-icons": {
-      "48": "icons/patch-ext-48.png",
-      "128": "icons/patch-ext-128.png"
-    },
     "theme_icons": [
       {
         "dark": "icons/patch-ext-48.png",
@@ -32,6 +28,12 @@
         "size": 128
       }
     ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "diff-patch@ghabayeb.com",
+      "strict_min_version": "57.0a1"
+    }
   },
   "version": "2.0.1",
   "manifest_version": 2
